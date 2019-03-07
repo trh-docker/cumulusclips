@@ -1,8 +1,8 @@
 FROM quay.io/spivegin/php7
 
 ADD files/Caddy/Caddyfile /opt/caddy/
-
-WORKDIR /opt/tlm/html
+ADD files/php/fpm /etc/php/7.0/
+WORKDIR /opt/tlm/html 
 
 RUN apt-get update && apt-get install -y php7.0-zip &&\ 
     apt-get autoclean && apt-get autoremove &&\
