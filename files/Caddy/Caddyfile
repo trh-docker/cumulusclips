@@ -1,6 +1,13 @@
 {$DOMAIN}:{$PORT} {
     root /opt/tlm/html/
     fastcgi / /run/php/php7.0-fpm.sock php
+    header path {
+        Host {host}
+        X-Real-IP {remote}
+        X-Forwarded-For {remote}
+        X-Forwarded-Port {server_port}
+        X-Forwarded-Proto {scheme}
+    }
     rewrite {
         to {path} {path}/ /index.php?{query}
     }
