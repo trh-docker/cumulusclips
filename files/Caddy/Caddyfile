@@ -1,7 +1,7 @@
 {$DOMAIN}:{$PORT} {
     root /opt/tlm/html/
     fastcgi / /run/php/php7.0-fpm.sock php
-    header path {
+    header / {
         Host {host}
         X-Real-IP {remote}
         X-Forwarded-For {remote}
