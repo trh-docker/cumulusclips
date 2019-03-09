@@ -5,7 +5,7 @@ ADD files/php/fpm /etc/php/7.0/
 WORKDIR /opt/tlm/html 
 
 RUN apt-get update &&\
-    apt-get purge libapache2-mod-php7.0 libapache2-mod-php &&\
+    apt-get purge -y libapache2-mod-php7.0 libapache2-mod-php &&\
     apt-get install -y libapache2-mod-php7.0 libapache2-mod-php php7.0-zip php7.0-opcache &&\
     a2enmod php7.0 &&\
     apt-get autoclean && apt-get autoremove &&\
