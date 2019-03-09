@@ -3,13 +3,15 @@ FROM quay.io/spivegin/apache
 WORKDIR /opt/tlm/html 
 
 RUN apt-get update &&\
-    apt-get install -y php7.0-zip &&\
+    apt-get install -y php7.0-zip  && a2enmod rewrite &&\
     apt-get autoclean && apt-get autoremove &&\
     rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
 
 
 RUN git clone https://github.com/cumulusclips/cumulusclips.git &&\
-    chown -R www-data:www-data .
+    chown -R www-data:www-data . &&\
+    chown -R www-data:www-data /var/www
+    
 
 EXPOSE 80
 ADD files/apache2/sites-enabled/00-default.conf /etc/apache2/sites-enabled/
