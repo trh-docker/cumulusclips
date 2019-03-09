@@ -13,6 +13,6 @@ RUN git clone https://github.com/cumulusclips/cumulusclips.git &&\
 
 EXPOSE 80
 ADD files/apache2/sites-enabled/00-default.conf /etc/apache2/sites-enabled/
-ADD cumulusclips/files/php/php.ini /etc/php/7.0/apache2/
+ADD files/php/php.ini /etc/php/7.0/apache2/
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]
 CMD ["/opt/bin/entry.sh"]
